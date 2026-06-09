@@ -1,18 +1,20 @@
-//
-//  HapticsManager.swift
-//  Himaytek
-//
-//  Created by Ismaeel on 09/06/2026.
-//
-
+import Combine
 import SwiftUI
 
-struct HapticsManager: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+class HapticsManager {
 
-#Preview {
-    HapticsManager()
+    static var instance = HapticsManager()
+
+    func notification(type: UINotificationFeedbackGenerator.FeedbackType) {
+
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(type)
+    }
+    
+    func haptic(type: UIImpactFeedbackGenerator.FeedbackStyle){
+        let generator = UIImpactFeedbackGenerator(style: type)
+        generator.impactOccurred()
+    }
+
+    
 }

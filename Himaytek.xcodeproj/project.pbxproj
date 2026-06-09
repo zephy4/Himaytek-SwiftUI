@@ -6,8 +6,27 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A7DEEE4F2FD818AD007564CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7DEEE4E2FD818AD007564CA /* Assets.xcassets */; };
+		A7DEEE692FD81EE9007564CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7DEEE672FD81EE9007564CA /* Localizable.strings */; };
+		A7DEEE6F2FD81F50007564CA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE6E2FD81F50007564CA /* LoginView.swift */; };
+		A7DEEE722FD81F6C007564CA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE712FD81F6C007564CA /* LoginViewModel.swift */; };
+		A7DEEE742FD81F78007564CA /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE732FD81F78007564CA /* LoginModels.swift */; };
+		A7DEEE762FD82033007564CA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE752FD82033007564CA /* AuthService.swift */; };
+		A7DEEE782FD82096007564CA /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE772FD82096007564CA /* HapticsManager.swift */; };
+		A7DEEE7A2FD8228C007564CA /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE792FD8228C007564CA /* NotificationsManager.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		A7DEEE472FD818AA007564CA /* Himaytek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Himaytek.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7DEEE4E2FD818AD007564CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A7DEEE682FD81EE9007564CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A7DEEE6E2FD81F50007564CA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		A7DEEE712FD81F6C007564CA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A7DEEE732FD81F78007564CA /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
+		A7DEEE752FD82033007564CA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		A7DEEE772FD82096007564CA /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
+		A7DEEE792FD8228C007564CA /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -32,8 +51,13 @@
 		A7DEEE3E2FD818AA007564CA = {
 			isa = PBXGroup;
 			children = (
-				A7DEEE492FD818AA007564CA /* Himaytek */,
+				A7DEEE602FD81E83007564CA /* Core */,
+				A7DEEE5F2FD81E67007564CA /* Models */,
+				A7DEEE5E2FD81E5C007564CA /* Services */,
+				A7DEEE5D2FD81DE2007564CA /* Views */,
+				A7DEEE5C2FD81D8D007564CA /* Resources */,
 				A7DEEE482FD818AA007564CA /* Products */,
+				A7DEEE492FD818AA007564CA /* Himaytek */,
 			);
 			sourceTree = "<group>";
 		};
@@ -43,6 +67,105 @@
 				A7DEEE472FD818AA007564CA /* Himaytek.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A7DEEE5C2FD81D8D007564CA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A7DEEE4E2FD818AD007564CA /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		A7DEEE5D2FD81DE2007564CA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A7DEEE6A2FD81F1C007564CA /* Auth */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A7DEEE5E2FD81E5C007564CA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A7DEEE752FD82033007564CA /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A7DEEE5F2FD81E67007564CA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A7DEEE602FD81E83007564CA /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				A7DEEE632FD81EB4007564CA /* Helpers */,
+				A7DEEE622FD81E97007564CA /* Constants */,
+				A7DEEE612FD81E86007564CA /* Extensions */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		A7DEEE612FD81E86007564CA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A7DEEE622FD81E97007564CA /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				A7DEEE672FD81EE9007564CA /* Localizable.strings */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		A7DEEE632FD81EB4007564CA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A7DEEE772FD82096007564CA /* HapticsManager.swift */,
+				A7DEEE792FD8228C007564CA /* NotificationsManager.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A7DEEE6A2FD81F1C007564CA /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				A7DEEE6D2FD81F3A007564CA /* Signup */,
+				A7DEEE6B2FD81F25007564CA /* Login */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		A7DEEE6B2FD81F25007564CA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				A7DEEE702FD81F5B007564CA /* components */,
+				A7DEEE6E2FD81F50007564CA /* LoginView.swift */,
+				A7DEEE712FD81F6C007564CA /* LoginViewModel.swift */,
+				A7DEEE732FD81F78007564CA /* LoginModels.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		A7DEEE6D2FD81F3A007564CA /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		A7DEEE702FD81F5B007564CA /* components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +232,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7DEEE4F2FD818AD007564CA /* Assets.xcassets in Resources */,
+				A7DEEE692FD81EE9007564CA /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,10 +244,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7DEEE782FD82096007564CA /* HapticsManager.swift in Sources */,
+				A7DEEE7A2FD8228C007564CA /* NotificationsManager.swift in Sources */,
+				A7DEEE6F2FD81F50007564CA /* LoginView.swift in Sources */,
+				A7DEEE742FD81F78007564CA /* LoginModels.swift in Sources */,
+				A7DEEE762FD82033007564CA /* AuthService.swift in Sources */,
+				A7DEEE722FD81F6C007564CA /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A7DEEE672FD81EE9007564CA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7DEEE682FD81EE9007564CA /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		A7DEEE502FD818AD007564CA /* Debug */ = {
@@ -185,6 +327,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -242,6 +385,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

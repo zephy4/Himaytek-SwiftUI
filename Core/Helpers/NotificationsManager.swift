@@ -1,18 +1,25 @@
-//
-//  SwiftUIView.swift
-//  Himaytek
-//
-//  Created by Ismaeel on 09/06/2026.
-//
-
+import Combine
 import SwiftUI
 
-struct SwiftUIView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+class NotificationsManager {
+    static var instance = NotificationsManager()
+    
+    
 
-#Preview {
-    SwiftUIView()
+    func requestPermissions() {
+        let options: UNAuthorizationOptions = [.alert, .badge, .sound]
+
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: options
+        ) { (success, error) in
+            if let error = error {
+                print(
+                    "Error while getting permissions of  notifications: \(error.localizedDescription)"
+                )
+            } else {
+                print("Notification Permissions granted")
+            }
+        }
+
+    }
 }
