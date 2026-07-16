@@ -5,3 +5,8 @@
   Created by Ismaeel on 09/06/2026.
   
 */
+"appName" = "Himaytek";
+
+"dontworry_forget" = "Don't worry! It occurs. Please enter the email or phone number linked with your account.";
+
+"otp_verification" = "Enter the verification code we just sent on your email address." ; 

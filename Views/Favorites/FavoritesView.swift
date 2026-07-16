@@ -1,11 +1,11 @@
 import SwiftUI
 
-struct BookingsView: View {
+struct FavoritesView: View {
 
     var body: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 10) {
-              
+
                 Spacer(minLength: 150)
                 Circle().fill(.thickMaterial).frame(
                     width: 120,
@@ -41,5 +41,5 @@ struct BookingsView: View {
 }
 
 #Preview {
-    BookingsView()
+    FavoritesView()
 }

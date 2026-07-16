@@ -1,18 +1,7 @@
-//
-//  SignupViewModel.swift
-//  Himaytek
-//
-//  Created by Ismaeel on 15/07/2026.
-//
-
+import Combine
 import SwiftUI
 
-struct SignupViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    SignupViewModel()
+class SignupViewModel: ObservableObject {
+    @Published var nameField: String = ""
+    @Published var emailField: String = ""
 }

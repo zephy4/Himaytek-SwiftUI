@@ -1,18 +1,24 @@
-//
-//  CommonBackButton.swift
-//  Himaytek
-//
-//  Created by Ismaeel on 15/07/2026.
-//
-
 import SwiftUI
 
 struct CommonBackButton: View {
+    var action: () -> Void
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        Button {
+            action()
+        } label: {
+            RoundedRectangle(cornerRadius: 12)
+                .fill(.gray.opacity(0.1))
+                .frame(width: 50, height: 50)
+                .overlay {
+                    Image(systemName: "chevron.left")
+                }
+                .shadow(radius: 20)
+        }
+
     }
 }
 
 #Preview {
-    CommonBackButton()
+    CommonBackButton(action: {})
 }

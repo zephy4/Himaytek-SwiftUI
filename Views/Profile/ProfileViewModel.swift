@@ -1,18 +1,25 @@
-//
-//  ProfileViewModel.swift
-//  Himaytek
-//
-//  Created by Ismaeel on 11/06/2026.
-//
-
+import Combine
 import SwiftUI
 
-struct ProfileViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+class ProfileViewModel: ObservableObject {
+    @Published var username: String = ""
+    @Published var email: String = ""
 
-#Preview {
-    ProfileViewModel()
+    init() {
+        loadCredentials()
+    }
+
+    func loadCredentials() {
+        username =
+            UserDefaults.standard.string(forKey: StorageKeys.username)
+            ?? "Guest"
+        email =
+            UserDefaults.standard.string(forKey: StorageKeys.email)
+            ?? "Guest"
+    }
+
+    func logout() {
+        UserDefaults.standard.removeObject(forKey: StorageKeys.username)
+        UserDefaults.standard.removeObject(forKey: StorageKeys.email)
+    }
 }

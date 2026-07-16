@@ -1,18 +1,29 @@
-//
-//  CommonAppbar.swift
-//  Himaytek
-//
-//  Created by Ismaeel on 11/06/2026.
-//
-
 import SwiftUI
 
 struct CommonAppbar: View {
+    @State var text: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack(alignment: .center) {
+            Text(text).font(
+                .custom("Urbanist-Regular", fixedSize: 16)
+            )
+            Spacer()
+            Button(action: {}) {
+                Image(systemName: "magnifyingglass").foregroundColor(
+                    .primary
+                )
+                .font(.title3)
+            }
+            Button(action: {
+                //                        settingsButton = 2
+            }) {
+                Image(systemName: "gear").foregroundColor(.primary)
+                    .font(.title3)
+            }
+        }.padding(.horizontal)
     }
 }
 
 #Preview {
-    CommonAppbar()
+    CommonAppbar(text: "Favorites")
 }

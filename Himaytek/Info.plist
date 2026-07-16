@@ -4,7 +4,11 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string></string>
+		<string>Urbanist-SemiBold.ttf</string>
+		<string>Urbanist-Thin.ttf</string>
+		<string>Urbanist-Regular.ttf</string>
+		<string>Urbanist-Light.ttf</string>
+		<string>Urbanist-Bold.ttf</string>
 	</array>
 </dict>
 </plist>

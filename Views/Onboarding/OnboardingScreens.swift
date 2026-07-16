@@ -28,10 +28,14 @@ struct OnboardingScreens: View {
                 }.tabViewStyle(.page)
 
                 Spacer()
-                CommonButton(text: "Get Started") {
-
-                    showLogin = true
-                }
+                CommonButton(
+                    text: "Sign in",
+                    destination: EmptyView(),
+                    action: {
+                        showLogin = true
+                    },
+                    isNavigation: false
+                )
 
             }.navigationDestination(isPresented: $showLogin) {
                 LoginView()

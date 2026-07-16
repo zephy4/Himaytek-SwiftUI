@@ -7,31 +7,94 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A7169E4D30074D3C00C7FCC1 /* ForgetPasswordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7169E4C30074D3C00C7FCC1 /* ForgetPasswordView.swift */; };
+		A7169E5030074E0100C7FCC1 /* CommonBackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7169E4F30074E0100C7FCC1 /* CommonBackButton.swift */; };
+		A7169E5230074F6300C7FCC1 /* ForgetPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7169E5130074F6300C7FCC1 /* ForgetPasswordViewModel.swift */; };
+		A7169E55300766F000C7FCC1 /* OTPVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7169E54300766F000C7FCC1 /* OTPVerifyView.swift */; };
+		A7169E573007671000C7FCC1 /* OTPVerifyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7169E563007671000C7FCC1 /* OTPVerifyViewModel.swift */; };
+		A7169E59300771C400C7FCC1 /* SignupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7169E58300771C400C7FCC1 /* SignupView.swift */; };
+		A7169E5B300771D900C7FCC1 /* SignupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7169E5A300771D900C7FCC1 /* SignupViewModel.swift */; };
+		A75F676B2FD9A1E40037228B /* Urbanist-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A75F67672FD9A1E40037228B /* Urbanist-Light.ttf */; };
+		A75F676C2FD9A1E40037228B /* Urbanist-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A75F67682FD9A1E40037228B /* Urbanist-Regular.ttf */; };
+		A75F676D2FD9A1E40037228B /* Urbanist-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A75F67662FD9A1E40037228B /* Urbanist-Bold.ttf */; };
+		A75F676E2FD9A1E40037228B /* Urbanist-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A75F676A2FD9A1E40037228B /* Urbanist-Thin.ttf */; };
+		A75F676F2FD9A1E40037228B /* Urbanist-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A75F67692FD9A1E40037228B /* Urbanist-SemiBold.ttf */; };
+		A75F67722FD9AA2E0037228B /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75F67712FD9AA2E0037228B /* CommonButton.swift */; };
+		A75F677A2FDAA8A40037228B /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75F67792FDAA8A40037228B /* Home.swift */; };
+		A75F67F92FDAB88E0037228B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75F67F82FDAB88E0037228B /* FavoritesView.swift */; };
+		A75F67FC2FDABA1F0037228B /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75F67FB2FDABA1F0037228B /* ProfileView.swift */; };
+		A75F67FE2FDABBDB0037228B /* CommonAppbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75F67FD2FDABBDB0037228B /* CommonAppbar.swift */; };
+		A75F68002FDABE530037228B /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75F67FF2FDABE530037228B /* ProfileViewModel.swift */; };
+		A75F68022FDAC1000037228B /* PhotoPickerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75F68012FDAC1000037228B /* PhotoPickerHelper.swift */; };
+		A75F68042FDAC1000037228B /* PhotoPickerModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = A75F68032FDAC1000037228B /* PhotoPickerModifier.swift */; };
 		A7DEEE4F2FD818AD007564CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7DEEE4E2FD818AD007564CA /* Assets.xcassets */; };
-		A7DEEE692FD81EE9007564CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7DEEE672FD81EE9007564CA /* Localizable.strings */; };
 		A7DEEE6F2FD81F50007564CA /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE6E2FD81F50007564CA /* LoginView.swift */; };
 		A7DEEE722FD81F6C007564CA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE712FD81F6C007564CA /* LoginViewModel.swift */; };
 		A7DEEE742FD81F78007564CA /* LoginModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE732FD81F78007564CA /* LoginModels.swift */; };
 		A7DEEE762FD82033007564CA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE752FD82033007564CA /* AuthService.swift */; };
 		A7DEEE782FD82096007564CA /* HapticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE772FD82096007564CA /* HapticsManager.swift */; };
 		A7DEEE7A2FD8228C007564CA /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE792FD8228C007564CA /* NotificationsManager.swift */; };
+		A7DEEE7F2FD82A05007564CA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7DEEE7D2FD82A05007564CA /* Localizable.strings */; };
+		A7DEEE862FD9515C007564CA /* ApiConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE852FD9515C007564CA /* ApiConstants.swift */; };
+		A7DEEE892FD95D4C007564CA /* StorageKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE882FD95D4C007564CA /* StorageKeys.swift */; };
+		A7DEEE8D2FD9695C007564CA /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE8C2FD9695C007564CA /* HomeView.swift */; };
+		A7DEEE912FD96E9D007564CA /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE902FD96E9D007564CA /* HomeViewModel.swift */; };
+		A7DEEE942FD97251007564CA /* OnboardingScreens.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DEEE932FD97251007564CA /* OnboardingScreens.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A7169E4C30074D3C00C7FCC1 /* ForgetPasswordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordView.swift; sourceTree = "<group>"; };
+		A7169E4F30074E0100C7FCC1 /* CommonBackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonBackButton.swift; sourceTree = "<group>"; };
+		A7169E5130074F6300C7FCC1 /* ForgetPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPasswordViewModel.swift; sourceTree = "<group>"; };
+		A7169E54300766F000C7FCC1 /* OTPVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerifyView.swift; sourceTree = "<group>"; };
+		A7169E563007671000C7FCC1 /* OTPVerifyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPVerifyViewModel.swift; sourceTree = "<group>"; };
+		A7169E58300771C400C7FCC1 /* SignupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupView.swift; sourceTree = "<group>"; };
+		A7169E5A300771D900C7FCC1 /* SignupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewModel.swift; sourceTree = "<group>"; };
+		A75F67662FD9A1E40037228B /* Urbanist-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Bold.ttf"; sourceTree = "<group>"; };
+		A75F67672FD9A1E40037228B /* Urbanist-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Light.ttf"; sourceTree = "<group>"; };
+		A75F67682FD9A1E40037228B /* Urbanist-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Regular.ttf"; sourceTree = "<group>"; };
+		A75F67692FD9A1E40037228B /* Urbanist-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-SemiBold.ttf"; sourceTree = "<group>"; };
+		A75F676A2FD9A1E40037228B /* Urbanist-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Urbanist-Thin.ttf"; sourceTree = "<group>"; };
+		A75F67712FD9AA2E0037228B /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
+		A75F67792FDAA8A40037228B /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		A75F67F82FDAB88E0037228B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		A75F67FB2FDABA1F0037228B /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		A75F67FD2FDABBDB0037228B /* CommonAppbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonAppbar.swift; sourceTree = "<group>"; };
+		A75F67FF2FDABE530037228B /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		A75F68012FDAC1000037228B /* PhotoPickerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerHelper.swift; sourceTree = "<group>"; };
+		A75F68032FDAC1000037228B /* PhotoPickerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerModifier.swift; sourceTree = "<group>"; };
 		A7DEEE472FD818AA007564CA /* Himaytek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Himaytek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7DEEE4E2FD818AD007564CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A7DEEE682FD81EE9007564CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A7DEEE6E2FD81F50007564CA /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		A7DEEE712FD81F6C007564CA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A7DEEE732FD81F78007564CA /* LoginModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModels.swift; sourceTree = "<group>"; };
 		A7DEEE752FD82033007564CA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		A7DEEE772FD82096007564CA /* HapticsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsManager.swift; sourceTree = "<group>"; };
 		A7DEEE792FD8228C007564CA /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
+		A7DEEE7E2FD82A05007564CA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A7DEEE852FD9515C007564CA /* ApiConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiConstants.swift; sourceTree = "<group>"; };
+		A7DEEE882FD95D4C007564CA /* StorageKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageKeys.swift; sourceTree = "<group>"; };
+		A7DEEE8C2FD9695C007564CA /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		A7DEEE902FD96E9D007564CA /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A7DEEE932FD97251007564CA /* OnboardingScreens.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreens.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A7DEEE8A2FD95F84007564CA /* Exceptions for "Himaytek" folder in "Himaytek" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = A7DEEE462FD818AA007564CA /* Himaytek */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A7DEEE492FD818AA007564CA /* Himaytek */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A7DEEE8A2FD95F84007564CA /* Exceptions for "Himaytek" folder in "Himaytek" target */,
+			);
 			path = Himaytek;
 			sourceTree = "<group>";
 		};
@@ -48,9 +111,82 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A7169E4B30074D2800C7FCC1 /* Forget Password */ = {
+			isa = PBXGroup;
+			children = (
+				A7169E4C30074D3C00C7FCC1 /* ForgetPasswordView.swift */,
+				A7169E5130074F6300C7FCC1 /* ForgetPasswordViewModel.swift */,
+			);
+			path = "Forget Password";
+			sourceTree = "<group>";
+		};
+		A7169E4E30074DE500C7FCC1 /* Common Components */ = {
+			isa = PBXGroup;
+			children = (
+				A7169E4F30074E0100C7FCC1 /* CommonBackButton.swift */,
+			);
+			path = "Common Components";
+			sourceTree = "<group>";
+		};
+		A7169E53300766D800C7FCC1 /* OTP Verify */ = {
+			isa = PBXGroup;
+			children = (
+				A7169E54300766F000C7FCC1 /* OTPVerifyView.swift */,
+				A7169E563007671000C7FCC1 /* OTPVerifyViewModel.swift */,
+			);
+			path = "OTP Verify";
+			sourceTree = "<group>";
+		};
+		A75F67652FD9A1B60037228B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A75F67662FD9A1E40037228B /* Urbanist-Bold.ttf */,
+				A75F67672FD9A1E40037228B /* Urbanist-Light.ttf */,
+				A75F67682FD9A1E40037228B /* Urbanist-Regular.ttf */,
+				A75F67692FD9A1E40037228B /* Urbanist-SemiBold.ttf */,
+				A75F676A2FD9A1E40037228B /* Urbanist-Thin.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A75F67702FD9AA0F0037228B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A75F67712FD9AA2E0037228B /* CommonButton.swift */,
+				A75F67FD2FDABBDB0037228B /* CommonAppbar.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A75F67772FDAA8900037228B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A75F67792FDAA8A40037228B /* Home.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A75F67F72FDAB8810037228B /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				A75F67F82FDAB88E0037228B /* FavoritesView.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		A75F67FA2FDABA100037228B /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				A75F67FB2FDABA1F0037228B /* ProfileView.swift */,
+				A75F67FF2FDABE530037228B /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		A7DEEE3E2FD818AA007564CA = {
 			isa = PBXGroup;
 			children = (
+				A75F67702FD9AA0F0037228B /* Components */,
 				A7DEEE602FD81E83007564CA /* Core */,
 				A7DEEE5F2FD81E67007564CA /* Models */,
 				A7DEEE5E2FD81E5C007564CA /* Services */,
@@ -72,6 +208,7 @@
 		A7DEEE5C2FD81D8D007564CA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A7DEEE952FD972FB007564CA /* Assets */,
 				A7DEEE4E2FD818AD007564CA /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -80,7 +217,13 @@
 		A7DEEE5D2FD81DE2007564CA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A7169E4E30074DE500C7FCC1 /* Common Components */,
+				A75F67FA2FDABA100037228B /* Profile */,
+				A75F67F72FDAB8810037228B /* Favorites */,
+				A75F67772FDAA8900037228B /* Home */,
 				A7DEEE6A2FD81F1C007564CA /* Auth */,
+				A7DEEE8B2FD96951007564CA /* HomeView */,
+				A7DEEE922FD97237007564CA /* Onboarding */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -120,7 +263,9 @@
 		A7DEEE622FD81E97007564CA /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				A7DEEE672FD81EE9007564CA /* Localizable.strings */,
+				A7DEEE872FD95D3D007564CA /* StorageKeys */,
+				A7DEEE842FD9514B007564CA /* Api constants */,
+				A7DEEE7D2FD82A05007564CA /* Localizable.strings */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -130,6 +275,8 @@
 			children = (
 				A7DEEE772FD82096007564CA /* HapticsManager.swift */,
 				A7DEEE792FD8228C007564CA /* NotificationsManager.swift */,
+				A75F68012FDAC1000037228B /* PhotoPickerHelper.swift */,
+				A75F68032FDAC1000037228B /* PhotoPickerModifier.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -137,6 +284,8 @@
 		A7DEEE6A2FD81F1C007564CA /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				A7169E53300766D800C7FCC1 /* OTP Verify */,
+				A7169E4B30074D2800C7FCC1 /* Forget Password */,
 				A7DEEE6D2FD81F3A007564CA /* Signup */,
 				A7DEEE6B2FD81F25007564CA /* Login */,
 			);
@@ -157,6 +306,8 @@
 		A7DEEE6D2FD81F3A007564CA /* Signup */ = {
 			isa = PBXGroup;
 			children = (
+				A7169E58300771C400C7FCC1 /* SignupView.swift */,
+				A7169E5A300771D900C7FCC1 /* SignupViewModel.swift */,
 			);
 			path = Signup;
 			sourceTree = "<group>";
@@ -166,6 +317,47 @@
 			children = (
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		A7DEEE842FD9514B007564CA /* Api constants */ = {
+			isa = PBXGroup;
+			children = (
+				A7DEEE852FD9515C007564CA /* ApiConstants.swift */,
+			);
+			path = "Api constants";
+			sourceTree = "<group>";
+		};
+		A7DEEE872FD95D3D007564CA /* StorageKeys */ = {
+			isa = PBXGroup;
+			children = (
+				A7DEEE882FD95D4C007564CA /* StorageKeys.swift */,
+			);
+			path = StorageKeys;
+			sourceTree = "<group>";
+		};
+		A7DEEE8B2FD96951007564CA /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				A7DEEE8C2FD9695C007564CA /* HomeView.swift */,
+				A7DEEE902FD96E9D007564CA /* HomeViewModel.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		A7DEEE922FD97237007564CA /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				A7DEEE932FD97251007564CA /* OnboardingScreens.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		A7DEEE952FD972FB007564CA /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A75F67652FD9A1B60037228B /* Fonts */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,7 +425,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7DEEE4F2FD818AD007564CA /* Assets.xcassets in Resources */,
-				A7DEEE692FD81EE9007564CA /* Localizable.strings in Resources */,
+				A7DEEE7F2FD82A05007564CA /* Localizable.strings in Resources */,
+				A75F676B2FD9A1E40037228B /* Urbanist-Light.ttf in Resources */,
+				A75F676C2FD9A1E40037228B /* Urbanist-Regular.ttf in Resources */,
+				A75F676D2FD9A1E40037228B /* Urbanist-Bold.ttf in Resources */,
+				A75F676E2FD9A1E40037228B /* Urbanist-Thin.ttf in Resources */,
+				A75F676F2FD9A1E40037228B /* Urbanist-SemiBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,22 +441,42 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7169E5B300771D900C7FCC1 /* SignupViewModel.swift in Sources */,
 				A7DEEE782FD82096007564CA /* HapticsManager.swift in Sources */,
+				A75F68022FDAC1000037228B /* PhotoPickerHelper.swift in Sources */,
+				A75F68042FDAC1000037228B /* PhotoPickerModifier.swift in Sources */,
+				A7DEEE912FD96E9D007564CA /* HomeViewModel.swift in Sources */,
+				A7169E573007671000C7FCC1 /* OTPVerifyViewModel.swift in Sources */,
 				A7DEEE7A2FD8228C007564CA /* NotificationsManager.swift in Sources */,
 				A7DEEE6F2FD81F50007564CA /* LoginView.swift in Sources */,
+				A7DEEE942FD97251007564CA /* OnboardingScreens.swift in Sources */,
+				A7DEEE8D2FD9695C007564CA /* HomeView.swift in Sources */,
+				A75F677A2FDAA8A40037228B /* Home.swift in Sources */,
+				A75F67FC2FDABA1F0037228B /* ProfileView.swift in Sources */,
 				A7DEEE742FD81F78007564CA /* LoginModels.swift in Sources */,
+				A7169E5230074F6300C7FCC1 /* ForgetPasswordViewModel.swift in Sources */,
+				A7169E59300771C400C7FCC1 /* SignupView.swift in Sources */,
+				A75F67F92FDAB88E0037228B /* FavoritesView.swift in Sources */,
+				A7DEEE862FD9515C007564CA /* ApiConstants.swift in Sources */,
+				A75F68002FDABE530037228B /* ProfileViewModel.swift in Sources */,
+				A75F67FE2FDABBDB0037228B /* CommonAppbar.swift in Sources */,
 				A7DEEE762FD82033007564CA /* AuthService.swift in Sources */,
+				A7169E4D30074D3C00C7FCC1 /* ForgetPasswordView.swift in Sources */,
+				A7DEEE892FD95D4C007564CA /* StorageKeys.swift in Sources */,
+				A75F67722FD9AA2E0037228B /* CommonButton.swift in Sources */,
 				A7DEEE722FD81F6C007564CA /* LoginViewModel.swift in Sources */,
+				A7169E55300766F000C7FCC1 /* OTPVerifyView.swift in Sources */,
+				A7169E5030074E0100C7FCC1 /* CommonBackButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A7DEEE672FD81EE9007564CA /* Localizable.strings */ = {
+		A7DEEE7D2FD82A05007564CA /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				A7DEEE682FD81EE9007564CA /* en */,
+				A7DEEE7E2FD82A05007564CA /* en */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -400,11 +617,14 @@
 				DEVELOPMENT_TEAM = SD48SRGUZN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Himaytek/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,12 +633,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zephy.Himaytek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -432,11 +656,14 @@
 				DEVELOPMENT_TEAM = SD48SRGUZN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Himaytek/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -445,12 +672,16 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.zephy.Himaytek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

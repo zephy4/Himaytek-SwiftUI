@@ -1,18 +1,19 @@
-//
-//  ApiConstants.swift
-//  Himaytek
-//
-//  Created by Ismaeel on 10/06/2026.
-//
-
+import Combine
 import SwiftUI
 
-struct ApiConstants: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+struct Headers {
+    static let contentKeyType = "Content-Type"
+    static let authorizationKey = "Authorization"
+
+    static let jsonValue = "application/json"
+
 }
 
-#Preview {
-    ApiConstants()
+struct Endpoints {
+    static let login = "/auth/login"
+
+    static func postDetails(id: Int) -> String {
+        return "/posts/\(id)"
+    }
+
 }

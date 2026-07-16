@@ -1,18 +1,8 @@
-//
-//  ForgetPasswordViewModel.swift
-//  Himaytek
-//
-//  Created by Ismaeel on 15/07/2026.
-//
-
+import Combine
 import SwiftUI
 
-struct ForgetPasswordViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+class ForgetPasswordViewModel: ObservableObject {
 
-#Preview {
-    ForgetPasswordViewModel()
+    @Published var phoneField: String = ""
+
 }

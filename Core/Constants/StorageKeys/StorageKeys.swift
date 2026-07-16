@@ -1,18 +1,12 @@
-//
-//  StorageKeys.swift
-//  Himaytek
-//
-//  Created by Ismaeel on 10/06/2026.
-//
-
+import Foundation
 import SwiftUI
 
-struct StorageKeys: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+enum StorageKeys {
+    static let username = "username"
+    static let isDarkMode = "isDarkMode"
 
-#Preview {
-    StorageKeys()
+    static let isLoggedIn = "isLoggedIn"
+    static let accessToken = "accessToken"
+    static let email = "example@gmail.com"
+
 }
