@@ -2,16 +2,16 @@ import SwiftUI
 
 struct HomeView: View {
     @StateObject var vm = HomeViewModel()
+    @State private var selectedTab = 0
+
     var body: some View {
-        TabView {
+        TabView(selection: $selectedTab) {
             NavigationStack {
-                Home()
+                Home(onSeeAllFavorites: { selectedTab = 1 })
             }.tabItem {
                 Label("Home", systemImage: "house")
-
             }
             .tag(0)
-
             NavigationStack {
                 FavoritesView()
             }.tabItem {
@@ -19,7 +19,7 @@ struct HomeView: View {
             }
             .tag(1)
             NavigationStack {
-                FavoritesView()
+                BookingsView()
             }.tabItem {
                 Label("Bookings", systemImage: "calendar.badge")
             }
@@ -30,8 +30,8 @@ struct HomeView: View {
             .tabItem {
                 Label("Profile", systemImage: "person.crop.circle.fill")
             }
+            .tag(3)
         }
-        .labelsHidden()
     }
 }
 

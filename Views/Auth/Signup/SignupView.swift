@@ -3,39 +3,47 @@ import SwiftUI
 struct SignupView: View {
 
     @StateObject var vm = SignupViewModel()
+    @Environment(\.dismiss) private var dismiss
+
     var body: some View {
-        NavigationStack {
-            ScrollView {
-                headings
-                Spacer(minLength: 30)
-                nameSection
-                emailSection.padding(.vertical, 12)
-                passwordsSection
-                Spacer(minLength: 15)
-                CommonButton(
-                    text: "Sign up",
-                    destination: EmptyView(),
-                    action: {
-
-                    },
-                    isNavigation: false
-                )
-                registerWith
-                    .padding(.vertical, 16)
-                SocialButton(icon: "google", social: "Google", action: {})
-                SocialButton(icon: "apple", social: "Apple", action: {})
-                SocialButton(
-                    icon: "avatar",
-                    social: "Guest",
-                    action: {
-                        //                        vm.isGuest = true
+        ScrollView {
+            headings
+            Spacer(minLength: 30)
+            nameSection
+            emailSection.padding(.vertical, 12)
+            phoneSection
+            passwordsSection.padding(.vertical, 12)
+            Spacer(minLength: 15)
+            CommonButton(
+                text: "signup",
+                destination: EmptyView(),
+                action: {
+                    Task {
+                        await vm.register()
                     }
-                )
-                Spacer(minLength: 14)
-                alreadyAccount
-
-            }
+                },
+                isNavigation: false
+            )
+            registerWith
+                .padding(.vertical, 16)
+            SocialButton(icon: "google", social: "Google", action: {})
+            SocialButton(icon: "apple", social: "Apple", action: {})
+            SocialButton(
+                icon: "avatar",
+                social: "Guest",
+                action: {}
+            )
+            Spacer(minLength: 14)
+            alreadyAccount
         }
+        .overlay(content: {
+            if vm.isLoading {
+                CommonLoader()
+            }
+            if vm.errorMessage?.isEmpty == false {
+                CommonBanner(isError: true, message: vm.errorMessage ?? "")
+            }
+        })
         .navigationBarBackButtonHidden()
     }
 
@@ -46,12 +54,12 @@ struct SignupView: View {
             Image("applogo2")
             Spacer(minLength: 30)
             HStack {
-                Text("Welcome to").font(.custom("Urbanist-Bold", size: 24))
-                Text("Himaytek")
+                Text("welcome").font(.custom("Urbanist-Bold", size: 24))
+                Text("appName")
                     .foregroundStyle(.accent)
                     .font(.custom("Urbanist-Bold", size: 24))
             }.padding(.vertical, 10)
-            Text("Create Your Account")
+            Text("create")
                 .font(.custom("Urbanist-Regular", size: 18))
 
         }
@@ -59,13 +67,13 @@ struct SignupView: View {
 
     var nameSection: some View {
         VStack(alignment: .leading) {
-            Text("Name")
+            Text("name")
                 .font(.custom("Urbanist-Regular", size: 12))
                 .foregroundStyle(.gray)
 
-            TextField("Your Name", text: $vm.nameField)
+            TextField("yourName", text: $vm.nameField)
                 .padding()
-                .background(.gray.opacity(0.1))
+                .background(.gray.opacity(0.1)) 
                 .cornerRadius(10)
                 .keyboardType(.default)
                 .font(.custom("Urbanist-Regular", size: 14))
@@ -75,11 +83,28 @@ struct SignupView: View {
 
     var emailSection: some View {
         VStack(alignment: .leading) {
-            Text("Email")
+            Text("email")
                 .font(.custom("Urbanist-Regular", size: 12))
                 .foregroundStyle(.gray)
 
-            TextField("Enter your Email Address", text: $vm.nameField)
+            TextField("enterEmail", text: $vm.emailField)
+                .padding()
+                .background(.gray.opacity(0.1))
+                .cornerRadius(10)
+                .keyboardType(.emailAddress)
+                .font(.custom("Urbanist-Regular", size: 14))
+                .autocorrectionDisabled()
+
+        }.padding(.horizontal, 20)
+    }
+
+    var phoneSection: some View {
+        VStack(alignment: .leading) {
+            Text("Phone Number")
+                .font(.custom("Urbanist-Regular", size: 12))
+                .foregroundStyle(.gray)
+
+            TextField("Phone Number", text: $vm.mobileNumberField)
                 .padding()
                 .background(.gray.opacity(0.1))
                 .cornerRadius(10)
@@ -92,12 +117,12 @@ struct SignupView: View {
 
     var passwordsSection: some View {
         VStack(alignment: .leading) {
-            Text("Password")
+            Text("password")
                 .font(.custom("Urbanist-Regular", size: 12))
                 .foregroundStyle(.gray)
 
             HStack {
-                TextField("Password", text: $vm.nameField)
+                TextField("password", text: $vm.passwordField)
                     .padding()
                     .background(.gray.opacity(0.1))
                     .cornerRadius(10)
@@ -106,7 +131,7 @@ struct SignupView: View {
                     .font(.custom("Urbanist-Regular", size: 14))
                     .frame(width: 169)
                 Spacer()
-                TextField("Confirm Password", text: $vm.nameField)
+                TextField("confirmPass", text: $vm.confirmPasswordField)
                     .padding()
                     .background(.gray.opacity(0.1))
                     .cornerRadius(10)
@@ -126,7 +151,7 @@ struct SignupView: View {
                 .fill(Color.gray.opacity(0.3))
                 .frame(height: 1)
 
-            Text("Or Register with")
+            Text("orRegister")
                 .font(.custom("Urbanist-Medium", size: 14))
                 .foregroundColor(.gray)
                 .layoutPriority(1)
@@ -140,17 +165,19 @@ struct SignupView: View {
 
     var alreadyAccount: some View {
         HStack {
-            Text("Already have an Account?")
+            Text("alreadyAccount")
                 .foregroundStyle(.gray)
                 .font(.custom("Urbanist-Regular", size: 14))
-            NavigationLink(destination: LoginView()) {
-                Text("Login")
-                    .font(.custom("Urbanist-Bold", size: 14))
+            Button("login") {
+                dismiss()
             }
+            .font(.custom("Urbanist-Bold", size: 14))
         }
     }
 }
 
 #Preview {
-    SignupView()
+    NavigationStack {
+        SignupView()
+    }
 }

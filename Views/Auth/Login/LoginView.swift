@@ -2,51 +2,52 @@ import SwiftUI
 
 struct LoginView: View {
     @StateObject var vm = LoginViewModel()
-    @State var isChecked: Bool = false
-    @State private var isPasswordVisible: Bool = false
-    let placeholder: String = ""
-    @State var text: String = ""
 
     var body: some View {
-        NavigationStack {
-            ZStack {
+        ZStack {
+            ScrollView(content: {
+                header
+                Spacer().frame(height: 50)
+                phoneSection
+                Spacer().frame(height: 12)
+                passwordSection
+                rememberMe
+                if vm.isLoading {
+                    ProgressView()
+                } else {
 
-                ScrollView(content: {
-                    header
-                    Spacer().frame(height: 50)
-                    phoneSection
-                    Spacer().frame(height: 12)
-                    passwordSection
-                    rememberMe
-                    if vm.isLoading {
-                        ProgressView()
-                    } else {
-
-                        CommonButton(
-                            text: "Sign in",
-                            destination: EmptyView(),
-                            action: {
-                                vm.onLoginTap()
-                            },
-                            isNavigation: false
-                        )
-                    }
-                    orSection
-                    SocialButton(icon: "google", social: "Google", action: {})
-                    SocialButton(icon: "apple", social: "Apple", action: {})
-                    SocialButton(
-                        icon: "avatar",
-                        social: "Guest",
+                    CommonButton(
+                        text: "signin",
+                        destination: EmptyView(),
                         action: {
-                            vm.isGuest = true
-                        }
+                            Task {
+                                await vm.onLoginTap()
+                            }
+                        },
+                        isNavigation: false
                     )
-                    createAccountButton
-                }).navigationBarBackButtonHidden()
+                }
+                orSection
+                SocialButton(icon: "google", social: "Google", action: {})
+                SocialButton(icon: "apple", social: "Apple", action: {})
+                SocialButton(
+                    icon: "avatar",
+                    social: "Guest",
+                    action: {
+                        vm.isGuest = true
+                    }
+                )
+                createAccountButton
+            })
+        }
+        .navigationBarBackButtonHidden()
+        .overlay(content: {
+            if vm.isLoading {
+                CommonLoader()
             }
-            .fullScreenCover(isPresented: $vm.isGuest) {
-                Text("Continue As guest")
-            }
+        })
+        .fullScreenCover(isPresented: $vm.isGuest) {
+            Text("guest")
         }
     }
 
@@ -56,7 +57,7 @@ struct LoginView: View {
             Image("applogo2")
                 .padding(.vertical, 20)
             HStack {
-                Text("Welcome to").font(
+                Text("welcome").font(
                     .custom("Urbanist-SemiBold", size: 28)
                 )
                 Text("appName").font(
@@ -64,7 +65,7 @@ struct LoginView: View {
                 )
                 .foregroundStyle(.accent)
             }
-            Text("Protect your car with trusted professionals")
+            Text("trustProfessionals")
                 .font(.custom("Urbanist-Light", size: 16))
 
         }
@@ -72,11 +73,11 @@ struct LoginView: View {
 
     var phoneSection: some View {
         VStack(alignment: .leading) {
-            Text("Phone Number")
+            Text("phoneNumber")
                 .font(.custom("Urbanist-Regular", size: 12))
                 .foregroundStyle(.gray)
 
-            TextField("Enter your phone number", text: $vm.phoneField)
+            TextField("enterPhone", text: $vm.phoneField)
                 .padding()
                 .background(.gray.opacity(0.1))
                 .cornerRadius(10)
@@ -88,29 +89,34 @@ struct LoginView: View {
 
     var passwordSection: some View {
         VStack(alignment: .leading, spacing: 6) {
-            Text("Password")
+            Text("password")
                 .font(.custom("Urbanist-Regular", size: 12))
                 .foregroundStyle(.gray)
 
             HStack {
-                if isPasswordVisible {
-                    TextField("Enter your password", text: $vm.passwordField)
+                if vm.isPasswordVisible {
+                    TextField("enterPassword", text: $vm.passwordField)
                         // Optimized
                         .autocapitalization(.none)
                         .font(.custom("Urbanist-Regular", size: 14))
                     autocorrectionDisabled()
                 } else {
-                    SecureField("Enter your password", text: $vm.passwordField)
-                        .font(.custom("Urbanist-Regular", size: 14))
+                    SecureField(
+                        LocalizedStringKey("enterPass"),
+                        text: $vm.passwordField
+                    )
+                    .font(.custom("Urbanist-Regular", size: 14))
                     // Optimized
                 }
 
                 Button(action: {
-                    isPasswordVisible.toggle()
+                    vm.isPasswordVisible.toggle()
                 }) {
-                    Image(systemName: isPasswordVisible ? "eye.slash" : "eye")
-                        .foregroundColor(.gray)
-                        .font(.system(size: 18, weight: .medium))
+                    Image(
+                        systemName: vm.isPasswordVisible ? "eye.slash" : "eye"
+                    )
+                    .foregroundColor(.gray)
+                    .font(.system(size: 18, weight: .medium))
                 }
             }
             .padding()
@@ -124,22 +130,22 @@ struct LoginView: View {
         HStack {
             HStack {
                 Button(action: {
-                    isChecked.toggle()
+                    vm.isChecked.toggle()
                 }) {
                     Image(
-                        systemName: isChecked
+                        systemName: vm.isChecked
                             ? "checkmark.square.fill" : "square"
                     )
-                    .foregroundColor(isChecked ? .accentColor : .gray)
+                    .foregroundColor(vm.isChecked ? .accentColor : .gray)
                     .font(.system(size: 16))
 
                 }
-                Text("Remember me")
+                Text("remeberMe")
                     .font(.custom("Urbanist-Regular", size: 12))
             }
             Spacer()
 
-            NavigationLink("Forgot Password?") {
+            NavigationLink("forgetpass") {
                 ForgetPasswordView()
 
             }.font(.custom("Urbanist-Regular", size: 12))
@@ -151,7 +157,7 @@ struct LoginView: View {
     var orSection: some View {
         HStack {
             Divider()
-            Text("Or")
+            Text("or")
                 .foregroundStyle(.gray)
                 .font(.custom("Urbanist-Regular", size: 14))
                 .padding(.horizontal, 20)
@@ -162,7 +168,7 @@ struct LoginView: View {
     var createAccountButton: some View {
         VStack {
             Spacer(minLength: 80)
-            NavigationLink("Create an Account") {
+            NavigationLink("create") {
                 SignupView()
             }
             .font(.custom("Urbanist-Bold", size: 14))
@@ -174,14 +180,13 @@ struct LoginView: View {
 struct SocialButton: View {
     let icon: String
     let social: String
-    var action: () -> Void  // Add an action so the button actually works!
-
+    var action: () -> Void
     var body: some View {
         Button(action: action) {
             HStack(spacing: 12) {
                 Image(icon)
                     .imageScale(.medium)
-                Text("Continue with \(social)")
+                Text("continue\(social)")
                     .font(.custom("Urbanist-Regular", size: 14))
                     .foregroundStyle(.black)
             }
@@ -195,5 +200,7 @@ struct SocialButton: View {
 }
 
 #Preview {
-    LoginView()
+    NavigationStack {
+        LoginView()
+    }
 }

@@ -9,7 +9,7 @@ struct HimaytekApp: App {
                 if isLoggedin {
                     HomeView()
                 } else {
-                    LoginView()
+                    OnboardingScreens()
                 }
             }
             .navigationTransition(.automatic)

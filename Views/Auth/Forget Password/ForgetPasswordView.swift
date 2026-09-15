@@ -12,7 +12,7 @@ struct ForgetPasswordView: View {
                 phoneSection
                 Spacer(minLength: 20)
                 CommonButton(
-                    text: "Send Code",
+                    text: "sendCode",
                     destination: OTPVerifyView(),
                     isNavigation: true
                 )
@@ -26,7 +26,7 @@ struct ForgetPasswordView: View {
 
     var headers: some View {
         VStack(alignment: .leading) {
-            Text("Forgot Password?")
+            Text("forgetpass")
                 .font(.custom("Urbanist-Bold", size: 28))
 
             Spacer(minLength: 15)
@@ -44,11 +44,11 @@ struct ForgetPasswordView: View {
 
     var phoneSection: some View {
         VStack(alignment: .leading) {
-            Text("Phone Number")
+            Text("phone")
                 .font(.custom("Urbanist-Regular", size: 12))
                 .foregroundStyle(.gray)
 
-            TextField("Enter your phone number", text: $vm.phoneField)
+            TextField("enterPhone", text: $vm.phoneField)
                 .padding()
                 .background(.gray.opacity(0.1))
                 .cornerRadius(10)
@@ -59,7 +59,7 @@ struct ForgetPasswordView: View {
     }
     var footers: some View {
         HStack {
-            Text("Remember Password?").font(
+            Text("rememberPass").font(
                 .custom("Urbanist-Regular", size: 14)
             )
             Button("Login") {
@@ -72,14 +72,7 @@ struct ForgetPasswordView: View {
 }
 
 #Preview {
-    ForgetPasswordView()
+    NavigationStack {
+        ForgetPasswordView()
+    }
 }
-
-/*
- i am attaching a reference picture from pinterest and the actual pictures of the product.
- I want you to make a new  image using the products actual images and the reference image of the pinterest and generate a full final product image
-
- remember to avoid Hallucinations. Do not over HDR the pictures. keep original tone and lightning.
- Do not guess details. Only include exactly these elements
-
- */

@@ -1,0 +1,19 @@
+{
+  "name": "sweetpad",
+  "version": "0.2.13",
+  "bspVersion": "2.2.0",
+  "languages": [
+    "swift",
+    "objective-c",
+    "objective-cpp",
+    "c",
+    "cpp"
+  ],
+  "argv": [
+    "/usr/local/bin/sweetpad",
+    "bsp",
+    "serve",
+    "--config",
+    "/Users/zephy/.local/state/sweetpad/projects/396d8608bfc5/bsp.json"
+  ]
+}

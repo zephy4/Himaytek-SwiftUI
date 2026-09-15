@@ -7,6 +7,10 @@ class LoginViewModel: ObservableObject {
 
     }
 
+    @Published var isChecked: Bool = false
+    @Published var isPasswordVisible: Bool = false
+    let placeholder: String = ""
+    @Published var text: String = ""
     @Published var phoneField: String = ""
     @Published var passwordField: String = ""
     @Published var isLoading: Bool = false
@@ -14,16 +18,22 @@ class LoginViewModel: ObservableObject {
 
     //MARK: LOGIN API
 
-    func onLoginTap() {
-        isLoading = true
-        let credentials = LoginRequest(
-            username: phoneField,
-            password: passwordField,
-            expiresInMins: 60
-        )
+    func onLoginTap() async {
 
-        AuthService.instance.loginApi(with: credentials)
-        isLoading = false
+        self.isLoading = true
+        defer {
+            self.isLoading = false
+        }
+
+        let credentials = LoginRequest(
+            email: phoneField,
+            //            mobileNumber: nil,
+            password: passwordField,
+            countryCode: "+965",
+            deviceType: "ios",
+            devicesToken: "deviceToken"
+        )
+        await AuthService.instance.loginApi(with: credentials)
     }
 
 }

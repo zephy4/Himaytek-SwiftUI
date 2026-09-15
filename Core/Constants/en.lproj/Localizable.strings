@@ -1,12 +1,56 @@
-/* 
-  Localizable.strings
-  Himaytek
+/*
+ Localizable.strings
+ Himaytek
+ */
 
-  Created by Ismaeel on 09/06/2026.
-  
-*/
 "appName" = "Himaytek";
-
 "dontworry_forget" = "Don't worry! It occurs. Please enter the email or phone number linked with your account.";
-
-"otp_verification" = "Enter the verification code we just sent on your email address." ; 
+"otp_verification" = "Enter the verification code we just sent on your email address.";
+"goodmornning" = "Good Morning";
+"searchBar" = "Search Vendors, bookings";
+"categories" = "Categories";
+"specialOffer" = "Special Offer";
+"bookNow" = "Book Now";
+"noFavs" = "No Favorites Yet!";
+"addfavs" = "Start Adding Your Favorite Vendors\nto see them here";
+"exploreVendors" = "Explore Vendors";
+"profile" = "Profile";
+"editProfile" = "Edit Profile";
+"logOut" = "Log out";
+"payments" = "Manage Payment Methods";
+"notificatios" = "Notification Preferences";
+"language" = "Language";
+"otp" = "OTP Verification";
+"nocode" = "Didn't received code?";
+"sendCode" = "Send Code";
+"forgetpass" = "Forgot Password?";
+"phone" = "Phone Number";
+"enterPhone" = "Enter your phone number";
+"rememberPass" = "Remember Password?";
+"signup" = "Sign up";
+"welcome" = "Welcome to";
+"create" = "Create Your Account";
+"name" = "Name";
+"email" = "Email";
+"enterPass" = "Enter Your Password";
+"enterEmail" = "Enter your Email Address";
+"password" = "Password";
+"confirmPass" = "Confirm Password";
+"orRegister" = "Or Register with";
+"alreadyAccount" = "Already have an Account?";
+"login" = "Login";
+"yourName" = "Your Name";
+"signin" = "Sign in";
+"guest" = "Continue As guest";
+"trustProfessionals" = "Protect your car with trusted professionals";
+"phoneNumber" = "Phone Number";
+"remeberMe" = "Remember me";
+"or" = "Or";
+"continue" = "Continue with ";
+"sayhello" = "Say Hello";
+"worryFree" = "to worry-free \n car maintenance!";
+"carService" = "Car Service?";
+"fingertips" = "at your fingertips!";
+"sayLess" = "Say less";
+"all" = "we have it all\nservices!";
+"loading" = "Loading...";

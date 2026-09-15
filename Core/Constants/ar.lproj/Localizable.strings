@@ -1,0 +1,57 @@
+/*
+ Localizable.strings
+ Himaytek
+ 
+ Created by Ismaeel on 09/06/2026.
+ 
+ */
+"appName" = "حمايةك";
+"dontworry_forget" = "لا تقلق! يحدث هذا أحياناً. يرجى إدخال البريد الإلكتروني أو رقم الهاتف المرتبط بحسابك.";
+"otp_verification" = "أدخل رمز التحقق الذي أرسلناه للتو إلى بريدك الإلكتروني.";
+"goodmornning" = "صباح الخير";
+"searchBar" = "ابحث عن البائعين والحجوزات";
+"categories" = "الفئات";
+"specialOffer" = "عرض خاص";
+"bookNow" = "احجز الآن";
+"noFavs" = "لا توجد مفضلات بعد!";
+"addfavs" = "ابدأ بإضافة البائعين المفضلين لديك\nلتراهم هنا";
+"exploreVendors" = "استكشف البائعين";
+"profile" = "الملف الشخصي";
+"editProfile" = "تعديل الملف الشخصي";
+"logOut" = "تسجيل الخروج";
+"payments" = "إدارة طرق الدفع";
+"notificatios" = "تفضيلات الإشعارات";
+"language" = "اللغة";
+"otp" = "التحقق من الرمز";
+"nocode" = "لم تستلم الرمز؟";
+"sendCode" = "إرسال الرمز";
+"forgetpass" = "نسيت كلمة المرور؟";
+"phone" = "رقم الهاتف";
+"enterPhone" = "أدخل رقم هاتفك";
+"rememberPass" = "تذكرت كلمة المرور؟";
+"signup" = "إنشاء حساب";
+"welcome" = "مرحباً بك في";
+"create" = "أنشئ حسابك";
+"name" = "الاسم";
+"email" = "البريد الإلكتروني";
+"enterEmail" = "أدخل بريدك الإلكتروني";
+"password" = "كلمة المرور";
+"confirmPass" = "تأكيد كلمة المرور";
+"orRegister" = "أو سجل عبر";
+"loading" = "تحميل...";
+"alreadyAccount" = "لديك حساب بالفعل؟";
+"login" = "تسجيل الدخول";
+"yourName" = "اسمك";
+"signin" = "تسجيل الدخول";
+"guest" = "المتابعة كزائر";
+"trustProfessionals" = "احمِ سيارتك مع محترفين موثوقين";
+"phoneNumber" = "رقم الهاتف";
+"remeberMe" = "تذكرني";
+"or" = "أو";
+"continue" = "المتابعة عبر ";
+"sayhello" = "قل مرحباً";
+"worryFree" = "بصيانة سيارات\nخالية من القلق!";
+"carService" = "خدمة السيارات؟";
+"fingertips" = "في متناول يدك!";
+"sayLess" = "قل أقل";
+"all" = "لدينا جميع\nالخدمات!";

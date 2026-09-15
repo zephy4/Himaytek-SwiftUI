@@ -14,17 +14,17 @@ struct ProfileView: View {
                 profileAvatar
                 userDetails
                 profileItems(
-                    text: "Manage Payment Methods",
+                    text: "payments",
                     icon: "creditcard",
                     isLanguage: false
                 )
                 profileItems(
-                    text: "Notification Preferences",
+                    text: "notificatios",
                     icon: "bell",
                     isLanguage: false
                 )
                 profileItems(
-                    text: "Language",
+                    text: "language",
                     icon: "translate",
                     isLanguage: true
                 )
@@ -41,7 +41,7 @@ struct ProfileView: View {
 
     var appBar: some View {
         HStack(alignment: .center) {
-            Text("Profile").font(
+            Text("profile").font(
                 .custom("Urbanist-Regular", fixedSize: 16)
             )
             Spacer()
@@ -76,7 +76,7 @@ struct ProfileView: View {
         VStack(spacing: 5) {
             Text("\(vm.username)").font(.custom("Urbanist-SemiBold", size: 20))
             Text("\(vm.email)").font(.custom("Urbanist-Regular", size: 14))
-            Button("Edit Profile") {
+            Button("editProfile") {
                 showPhotoPicker = true
             }
             .font(.custom("Urbanist-Bold", size: 14))
@@ -92,7 +92,7 @@ struct ProfileView: View {
                 Image(systemName: "door.left.hand.open")
                     .font(.title2)
                     .foregroundStyle(.red)
-                Text("Log out")
+                Text("logOut")
                     .font(.custom("Urbanist-Regular", size: 18))
                     .foregroundStyle(.red)
             }
@@ -116,7 +116,7 @@ struct ProfileView: View {
             HStack {
                 Image(systemName: icon)
                     .font(.callout)
-                Text(text)
+                Text(LocalizedStringKey(text))
                     .font(.custom("Urbanist-Regular", size: 14))
                 Spacer(minLength: 40)
                 if isLanguage {

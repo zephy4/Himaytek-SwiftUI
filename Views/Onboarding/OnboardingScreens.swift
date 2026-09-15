@@ -11,25 +11,25 @@ struct OnboardingScreens: View {
                 TabView {
                     onboardingElement(
                         image: "onboarding1",
-                        topText: "Say Hello",
-                        bottomText: "to worry-free \n car maintenance!"
+                        topText: "sayhello",
+                        bottomText: "worryFree"
                     )
                     onboardingElement(
                         image: "onboarding2",
-                        topText: "Car Service?",
-                        bottomText: "at your fingertips!"
+                        topText: "carService",
+                        bottomText: "fingertips"
                     )
                     onboardingElement(
                         image: "onboarding3",
-                        topText: "Say less",
-                        bottomText: "we have it all\nservices!"
+                        topText: "sayLess",
+                        bottomText: "all"
                     )
 
                 }.tabViewStyle(.page)
 
                 Spacer()
                 CommonButton(
-                    text: "Sign in",
+                    text: "signin",
                     destination: EmptyView(),
                     action: {
                         showLogin = true
@@ -52,10 +52,10 @@ struct onboardingElement: View {
     var body: some View {
         VStack {
             Image(image)
-            Text(topText)
+            Text(LocalizedStringKey(topText))
                 .font(.custom("Urbanist-SemiBold", size: 28))
                 .foregroundStyle(.accent)
-            Text(bottomText)
+            Text(LocalizedStringKey(bottomText))
                 .font(.custom("Urbanist-SemiBold", size: 26))
                 .foregroundStyle(.black)
                 .multilineTextAlignment(.center)

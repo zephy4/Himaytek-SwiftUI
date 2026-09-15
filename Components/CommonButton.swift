@@ -6,7 +6,7 @@ struct CommonButton<Destination: View>: View {
     let destination: Destination
     var action: (() -> Void)? = nil
     var isNavigation: Bool
-    
+
     var body: some View {
         if isNavigation {
             // 2. Navigation Link Destination
@@ -24,15 +24,15 @@ struct CommonButton<Destination: View>: View {
             }
         }
     }
-    
+
     // 4. Shared styling so you don't duplicate code
     private var buttonLabel: some View {
-        Text(text)
+        Text(LocalizedStringKey(text))
             .font(.custom("Urbanist-SemiBold", size: 14))
             .foregroundStyle(.white)
             .frame(maxWidth: .infinity)
             .padding(.vertical, 16)
-            .background(Color.accentColor) // Matches your system/custom accent color
+            .background(Color.accentColor)  // Matches your system/custom accent color
             .cornerRadius(8)
             .padding(.horizontal, 20)
     }

@@ -5,7 +5,6 @@ struct FavoritesView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .center, spacing: 10) {
-
                 Spacer(minLength: 150)
                 Circle().fill(.thickMaterial).frame(
                     width: 120,
@@ -16,24 +15,27 @@ struct FavoritesView: View {
                         .title
                     ).fontWeight(.bold)
                 ).frame(width: 120, height: 160, alignment: .center)
-                Text("No Favorites Yet!").font(
+                Text("noFavs").font(
                     .custom("Urbanist-Regular", size: 20)
                 )
-                Text("Start Adding Your Favorite Vendors\nto see them here")
+                Text("addfavs")
                     .font(.custom("Urbanist-Regular", size: 16))
                     .multilineTextAlignment(.center)
-                Button(action: ({})) {
+                NavigationLink {
+                    VendorsView()
+                } label: {
                     RoundedRectangle(cornerRadius: 10).fill(.accent).frame(
                         width: 190,
                         height: 60,
                         alignment: .center
                     ).overlay(
-                        Text("Explore Vendors").foregroundColor(.white)
+                        Text("exploreVendors").foregroundColor(.white)
                             .fontWeight(
                                 .medium
                             )
                     )
                 }
+
             }
 
         }
@@ -41,5 +43,7 @@ struct FavoritesView: View {
 }
 
 #Preview {
-    FavoritesView()
+    NavigationStack {
+        FavoritesView()
+    }
 }

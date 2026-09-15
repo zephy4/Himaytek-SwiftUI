@@ -14,7 +14,8 @@ struct OTPVerifyView: View {
                 CommonButton(
                     text: "Verify",
                     destination: EmptyView(),
-                    isNavigation: true
+                    action: {},
+                    isNavigation: false
                 )
             }
             footers
@@ -26,7 +27,7 @@ struct OTPVerifyView: View {
 
     var headers: some View {
         VStack(alignment: .leading) {
-            Text("OTP Verification")
+            Text("otp")
                 .font(.custom("Urbanist-Bold", size: 28))
 
             Spacer(minLength: 15)
@@ -44,7 +45,7 @@ struct OTPVerifyView: View {
 
     var footers: some View {
         HStack {
-            Text("Didn't received code?").font(
+            Text("nocode").font(
                 .custom("Urbanist-Regular", size: 14)
             )
             Button("Resend") {
@@ -127,5 +128,7 @@ struct OTPVerifyView: View {
 }
 
 #Preview {
-    OTPVerifyView()
+    NavigationStack {
+        OTPVerifyView()
+    }
 }
