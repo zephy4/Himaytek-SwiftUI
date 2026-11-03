@@ -5,14 +5,41 @@
 //  Created by Ismaeel on 21/09/2026.
 //
 
+import Combine
 import SwiftUI
 
-struct SupportAndHelpCenterViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+class SupportAndHelpCenterViewModel: ObservableObject {
+    @Published var selectedIssue: String? = nil
+    @Published var description: String = ""
 
-#Preview {
-    SupportAndHelpCenterViewModel()
+    let issueTypes = [
+        "Billing & Payment",
+        "Technical Support",
+        "Account Issues",
+        "General Inquiry",
+    ]
+
+    let repo = SupportRepository.instance
+    var isLoading = false
+    var errorMessage = ""
+
+    func placeTicket() async {
+        let body = {
+            TicketsRequest(
+                description: self.description,
+                category: self.selectedIssue,
+                attachments: nil
+            )
+        }
+        isLoading = true
+        defer {
+            isLoading = false
+        }
+
+        do {
+            try await repo.createTicket(with: body())
+        } catch {
+            print("Error: \(error)")
+        }
+    }
 }

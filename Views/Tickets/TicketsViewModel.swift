@@ -1,18 +1,27 @@
-//
-//  TicketsViewModel.swift
-//  Himaytek
-//
-//  Created by Ismaeel on 17/09/2026.
-//
-
+import Combine
 import SwiftUI
 
-struct TicketsViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+@MainActor
+class TicketsViewModel: ObservableObject {
 
-#Preview {
-    TicketsViewModel()
+    let repo = SupportRepository.instance
+
+    @Published var tickets: [Ticket] = []
+    @Published var isLoading: Bool = false
+    @Published var errorMessage: String = ""
+
+    func loadTickets() async {
+        isLoading = true
+        defer { isLoading = false }
+
+        do {
+            let response = try await repo.getTickets()
+
+            tickets = response.data?.tickets ?? []
+        } catch {
+            errorMessage = error.localizedDescription
+            print("Failed to load vendors: \(error)")
+        }
+    }
+
 }

@@ -5,18 +5,18 @@ struct LoginResponse: Codable {
     let success: Bool?
     let message: String?
     let code: Int?
-    let data: DataClass?
-    
+    let data: LoginData?
+
     enum CodingKeys: String, CodingKey {
         case success, message, code, data
     }
 }
 
 // MARK: - DataClass
-struct DataClass: Codable {
+struct LoginData: Codable {
     let user: User?
     let token: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case user, token
     }
@@ -30,12 +30,12 @@ struct User: Codable {
     let countryCode: String?
     let mobileNumber: String?
     let type: String?
-    
+
     // ✅ Replaced JSONNull? with standard optional String?
     let profileImage: String?
     let phoneVerifiedAt: String?
     let languagePreference: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case id, name, email, type
         case countryCode = "country_code"
@@ -53,7 +53,7 @@ struct LoginRequest: Codable {
     let countryCode: String?
     let deviceType: String?
     let devicesToken: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case email, password
         case countryCode = "country_code"

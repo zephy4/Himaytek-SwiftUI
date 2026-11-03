@@ -1,18 +1,15 @@
-//
-//  SettingsModel.swift
-//  Himaytek
-//
-//  Created by Ismaeel on 17/09/2026.
-//
+import Foundation
 
-import SwiftUI
-
-struct SettingsModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+enum SettingsDestination: Hashable {
+    case terms
+    case privacy
+    case support
+    case ticket
 }
 
-#Preview {
-    SettingsModel()
+struct SettingsModel: Identifiable, Hashable {
+    var id = UUID().uuidString
+    let image: String?
+    let title: String?
+    let destination: SettingsDestination
 }

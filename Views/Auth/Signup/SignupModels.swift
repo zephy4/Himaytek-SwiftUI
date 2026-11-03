@@ -35,6 +35,6 @@ struct RegisterResponse: Codable {
         case success = "success"
         case message = "message"
         case code = "code"
-
+//MVVM
     }
 }

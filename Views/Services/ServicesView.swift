@@ -2,6 +2,8 @@ import SwiftUI
 
 struct ServicesView: View {
     @Environment(\.dismiss) var dismiss
+    let service: Service
+
     var body: some View {
         VStack(spacing: 0) {
             appBar
@@ -15,10 +17,12 @@ struct ServicesView: View {
                 .padding(.horizontal, 20)
             }
             .scrollIndicators(.hidden)
-            BottomBookingBar()
+            BottomBookingBar(totalPrice: service.basePrice ?? "")
         }
 
         .navigationBarBackButtonHidden()
+        .toolbarVisibility(.hidden, for: .tabBar)
+        .ignoresSafeArea(edges: .bottom)
     }
 
     //MARK: Components
@@ -49,19 +53,21 @@ struct ServicesView: View {
                 .padding(.bottom, 8)
 
             HStack {
-                Text("Ceramic Coating Service")
+                Text(service.name ?? "")
                     .font(.custom("Urbanist-Regular", size: 18))
                 Spacer()
-                Text("135 KWD")
-                    .font(.custom("Urbanist-Regular", size: 18))
+                Text(
+                    "\(service.basePrice ?? "") KWD"
+                )
+                .font(.custom("Urbanist-Regular", size: 18))
             }
-            Text("Paint Protection Service")
+            Text(service.description ?? "")
                 .font(.custom("Urbanist-Light", size: 15))
         }
     }
 
     struct BottomBookingBar: View {
-        var totalPrice: String = "100 KWD"
+        let totalPrice: String
         var onBookTap: () -> Void = {}
 
         var body: some View {
@@ -80,7 +86,7 @@ struct ServicesView: View {
                 Spacer()
                 CommonButton(
                     text: "Book Service",
-                    destination: HomeView(),
+                    destination: SelectCarDesign(),
                     isNavigation: true
                 )
                 .frame(width: 170)
@@ -103,7 +109,7 @@ struct ServicesView: View {
                         y: -5
                     )
             )
-            .ignoresSafeArea(edges: .bottom)
+
         }
     }
 
@@ -113,14 +119,15 @@ struct ServicesView: View {
             .foregroundStyle(.gray.opacity(0.1))
             .overlay {
                 VStack(alignment: .leading) {
+
                     IncludedItemRow(
                         title: "Duration",
-                        subTitle: "3-5 Hours",
+                        subTitle: "\(service.durationMinutes ?? 0)",
                         icon: "clock.fill"
                     )
                     IncludedItemRow(
                         title: "Warranty",
-                        subTitle: "2 Years Protection",
+                        subTitle: service.warranty ?? "",
                         icon: "calendar"
                     )
                     IncludedItemRow(
@@ -160,26 +167,54 @@ struct ServicesView: View {
     }
 
     private var includedDetails: some View {
+
         VStack(alignment: .leading) {
             Text("Whats Included")
                 .font(.custom("Urbanist-Regular", size: 16))
 
-            RoundedRectangle(cornerRadius: 6)
-                .frame(height: 222)
-                .foregroundStyle(.gray.opacity(0.1))
-                .overlay {
+            VStack(alignment: .leading, spacing: 10) {
+                ForEach(service.inclusions ?? [], id: \.self) { index in
                     HStack {
                         Image(systemName: "checkmark")
                             .foregroundStyle(.green)
-                        Text("Complete paint surface preparation and cleaning")
+
+                        Text(index)
                             .font(.custom("Urbanist-Regular", size: 14))
+                        Spacer()
                     }
+                    .padding(.horizontal, 20)
                 }
+            }
+            .padding(.vertical, 14)
+            .background(
+                RoundedRectangle(cornerRadius: 8)
+                    .frame(width: 355)
+                    .foregroundStyle(.gray.opacity(0.1))
+            )
         }
-        .padding(.vertical, 14)
     }
 }
 
 #Preview {
-    ServicesView()
+    // Construct a mock service for previewing the layout
+    let mockService = Service(
+        id: 1,
+        name: "Paint Protection Film",
+        description:
+            "Clear film protection for high-impact areas of your vehicle.",
+        image: nil,
+        warranty: "5 Years",
+        inclusions: ["Hood", "Bumpers", "Mirrors"],
+        durationMinutes: 180,
+        cancellationPeriodHours: 24,
+        basePrice: "120",
+        featured: true,
+        isActive: true,
+        displayOrder: 1,
+        category: nil,
+        createdAt: nil,
+        updatedAt: nil
+    )
+
+    return ServicesView(service: mockService)
 }

@@ -48,6 +48,8 @@ struct Endpoints {
     static let login = "/api/auth/login"
     static let register = "/api/auth/register"
     static let vendors = "api/vendors/nearby"
+    static let vendorsDetails = "api/vendors"
+    static let tickets = "/api/support/tickets"
 
     static func postDetails(id: Int) -> String {
         return "/posts/\(id)"

@@ -10,9 +10,9 @@ struct VendorsView: View {
                 categories(vm: vm)
                 vendorsList(vm: vm)
             }
-        }.task({
+        }.task {
             await vm.loadVendors()
-        })
+        }
         .padding(.horizontal, 20)
         .navigationBarBackButtonHidden()
     }
@@ -59,15 +59,49 @@ struct vendorsList: View {
 
         ForEach(vm.vendors, id: \.self) { vendor in
             NavigationLink {
-                VendorsDetailsView()
+                VendorsDetailsView(vendorId: vendor.id ?? 0)
             } label: {
                 RoundedRectangle(cornerRadius: 12)
                     .frame(width: 350, height: 104)
                     .foregroundStyle(.gray.opacity(0.1))
                     .overlay {
                         HStack(alignment: .top) {
-                            RoundedRectangle(cornerRadius: 12)
-                                .frame(width: 54, height: 54)
+                            AsyncImage(url: URL(string: vendor.logo ?? "")) {
+                                phase in
+                                switch phase {
+                                case .empty:
+                                    // Progress view while image is downloading
+                                    ProgressView()
+                                        .frame(width: 54, height: 54)
+                                        .background(Color.gray.opacity(0.1))
+                                        .clipShape(
+                                            RoundedRectangle(cornerRadius: 12)
+                                        )
+
+                                case .success(let image):
+                                    // Image loaded successfully
+                                    image
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 54, height: 54)
+                                        .clipShape(
+                                            RoundedRectangle(cornerRadius: 12)
+                                        )
+
+                                case .failure:
+                                    // Fallback UI if URL is invalid or image fails to load
+                                    Image(systemName: "storefront.fill")
+                                        .foregroundColor(.gray)
+                                        .frame(width: 54, height: 54)
+                                        .background(Color.gray.opacity(0.1))
+                                        .clipShape(
+                                            RoundedRectangle(cornerRadius: 12)
+                                        )
+
+                                @unknown default:
+                                    EmptyView()
+                                }
+                            }
                             VStack(alignment: .leading) {
                                 Text(vendor.name ?? "Vendor")
                                     .font(.custom("Urbanist-Regular", size: 15))
@@ -116,7 +150,7 @@ struct vendorsList: View {
 
                                 Text(vendor.aboutUs ?? "")
                                     .font(.custom("Urbanist-Regular", size: 13))
-                                    .frame(width: 152, alignment: .leading)
+                                    .frame(alignment: .leading)
 
                             }
 
@@ -136,13 +170,13 @@ struct vendorsList: View {
                     }
             }
             .buttonStyle(.plain)
-        }
+        }.padding(.top, 15)
 
     }
 }
 
 struct categories: View {
-    let vm: VendorsViewModel
+    @ObservedObject var vm: VendorsViewModel
     var body: some View {
 
         ScrollView(.horizontal) {

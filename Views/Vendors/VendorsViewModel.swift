@@ -5,14 +5,13 @@ class VendorsViewModel: ObservableObject {
     @Published var showReviews: Bool = false
     @Published var isLiked: Bool = false
 
-    let token = UserDefaults.standard.string(forKey: StorageKeys.accessToken)
+    let repo = VendorsRepository.instance
 
     var isLoading = true
     var errorMessage = ""
 
-    //    init() async {
-    //        await loadVendors()
-    //    }
+    @Published var vendors: [Datum] = []
+    @Published var vendorDetails: VendorsDetailsData? = nil
 
     @Published var categories: [CategoriesModel] = [
         CategoriesModel(
@@ -37,39 +36,35 @@ class VendorsViewModel: ObservableObject {
         ),
     ]
 
-    @Published var vendors: [Datum] = []
-
-    func fetchVendors() async throws -> VendorsResponse {
-        let baseURL = APIConfig.currentEnvironment.baseURL
-        let url = baseURL.appendingPathComponent(Endpoints.vendors)
-        var request = URLRequest(url: url)
-        
-        request.httpMethod = "GET"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-        request.setValue(
-            "Bearer \(token ?? "3|F9wgEM0MZdkEn9VIHrBQMx7tOwACYv8AHHzvFb5L1088cfa7")",
-            forHTTPHeaderField: "Authorization"
-        )
-
-        let (data, response) = try await URLSession.shared.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse,
-            (200...299).contains(httpResponse.statusCode)
-        else {
-            throw URLError(.badServerResponse)
-        }
-        return try JSONDecoder().decode(VendorsResponse.self, from: data)
-    }
-
+    @MainActor
     func loadVendors() async {
+        isLoading = true
+        errorMessage = ""
+        defer { isLoading = false }
+
         do {
-            let response = try await fetchVendors()
-            self.vendors = response.data ?? []
+            let response = try await repo.getVendors()
+            vendors = response.vendors
+            print("Assigned vendors count: \(vendors.count)")
         } catch {
-            self.errorMessage = error.localizedDescription
+            errorMessage = error.localizedDescription
             print("Failed to load vendors: \(error)")
         }
+    }
 
-        isLoading = false
+    @MainActor
+    func loadDetails(id: Int) async {
+        print("loadDetails called for id: \(id)")
+        isLoading = true
+        errorMessage = ""
+        defer { isLoading = false }
+        do {
+            let response = try await repo.getVendorsDetails(id: id)
+            vendorDetails = response.data
+            print("Assigned vendor details: \(vendorDetails?.name ?? "nil")")
+        } catch {
+            errorMessage = error.localizedDescription
+            print("Failed to Load vendor details: \(error)")
+        }
     }
 }

@@ -5,14 +5,17 @@
 //  Created by Ismaeel on 18/09/2026.
 //
 
+import Combine
 import SwiftUI
 
-struct SelectCarDesignViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+class SelectCarDesignViewModel: ObservableObject {
 
-#Preview {
-    SelectCarDesignViewModel()
+    @Published var designs: [SelectCarDesignModel] = [
+        SelectCarDesignModel(title: "Coupe", icon: "car"),
+        SelectCarDesignModel(title: "Sedan", icon: "car"),
+        SelectCarDesignModel(title: "SUV (5 seats)", icon: "suv-car"),
+        SelectCarDesignModel(title: "SUV (7 seats)", icon: "suv-car"),
+    ]
+    
+    @Published var selectedItem: SelectCarDesignModel? = nil
 }

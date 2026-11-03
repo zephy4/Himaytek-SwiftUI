@@ -1,7 +1,8 @@
 import SwiftUI
 
 struct VendorsDetailsView: View {
-    @ObservedObject var vm = VendorsViewModel()
+    @StateObject private var vm = VendorsViewModel()
+    let vendorId: Int
     @Environment(\.dismiss) var dismiss
     var body: some View {
 
@@ -13,17 +14,13 @@ struct VendorsDetailsView: View {
             reviews
 
         }
+        .task(id: vendorId) {
+            await vm.loadDetails(id: vendorId)
+        }
         .scrollIndicators(.hidden)
         .navigationBarBackButtonHidden()
-        .sheet(
-            isPresented: $vm.showReviews,
-            content: {
-
-                Text("Reviews Section")
-            }
-        )
         .padding(.horizontal, 20)
-        
+
     }
 
     //MARK: Components
@@ -49,16 +46,17 @@ struct VendorsDetailsView: View {
             RoundedRectangle(cornerRadius: 8)
                 .frame(width: 70, height: 70)
             VStack(alignment: .leading, spacing: 5) {
-                Text("Elite Detailing")
+                Text(vm.vendorDetails?.name ?? "NO NAME")
                     .font(.custom("Urbanist-Regular", size: 20))
                 HStack {
-                    Text("4.8")
+                    Text("\(vm.vendorDetails?.averageRating ?? 0 )")
+
                         .font(.custom("Urbanist-Regular", size: 14))
                     Image(systemName: "star.fill")
                         .resizable()
                         .frame(width: 15, height: 15, alignment: .leading)
                         .foregroundStyle(.yellow)
-                    Text("(324 reviews)")
+                    Text("\(vm.vendorDetails?.totalReviews ?? 0)")
                         .font(.custom("Urbanist-Regular", size: 14))
                 }
                 Text("2.3 km away")
@@ -86,37 +84,76 @@ struct VendorsDetailsView: View {
                 .font(.custom("Urbanist-Regular", size: 16))
                 .padding(.vertical, 14)
                 .padding(.top, 6)
-            NavigationLink {
-                ServicesView()
-            } label: {
-                RoundedRectangle(cornerRadius: 6)
-                    .frame(width: 236, height: 122)
-                    .foregroundStyle(.gray.opacity(0.1))
-                    .overlay {
-                        VStack(alignment: .leading) {
-                            HStack(spacing: 1) {
-                                Text("Paint Protection Film")
-                                    .font(.custom("Urbanist-Regular", size: 15))
-                                Spacer()
-                                Image("clock")
-                                Text("3h")
-                                    .font(.custom("Urbanist-Regular", size: 12))
-                            }
-                            Text("Clear film protection for high-impact areas")
-                                .font(.custom("Urbanist-Light", size: 13))
-                            Spacer()
-                            HStack {
-                                Text("120 KWD")
-                                    .font(.custom("Urbanist-Bold", size: 15))
-                                Spacer()
-                                Text("Book")
-                                .font(.custom("Urbanist-Bold", size: 15))
-                            }
+
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(vm.vendorDetails?.services ?? []) { item in
+
+                        NavigationLink {
+                            ServicesView(service: item)
+                        } label: {
+                            RoundedRectangle(cornerRadius: 6)
+                                .frame(width: 236, height: 122)
+                                .foregroundStyle(.gray.opacity(0.1))
+                                .overlay {
+                                    VStack(alignment: .leading) {
+                                        HStack(spacing: 1) {
+                                            Text(item.name ?? "")
+                                                .font(
+                                                    .custom(
+                                                        "Urbanist-Regular",
+                                                        size: 15
+                                                    )
+                                                )
+                                            Spacer()
+                                            Image("clock")
+
+                                            Text(
+                                                "\((item.durationMinutes ?? 0) / 60)h"
+                                            )
+
+                                            .font(
+                                                .custom(
+                                                    "Urbanist-Regular",
+                                                    size: 12
+                                                )
+                                            )
+                                        }
+                                        Text(
+                                            item.description ?? ""
+                                        )
+                                        .multilineTextAlignment(.leading)
+                                        .font(
+                                            .custom("Urbanist-Light", size: 13)
+                                        )
+                                        Spacer()
+                                        HStack {
+                                            Text("\(item.basePrice ?? "0") KWD")
+                                                .font(
+                                                    .custom(
+                                                        "Urbanist-Bold",
+                                                        size: 15
+                                                    )
+                                                )
+                                            Spacer()
+                                            Text("Book")
+                                                .font(
+                                                    .custom(
+                                                        "Urbanist-Bold",
+                                                        size: 15
+                                                    )
+                                                )
+                                        }
+                                    }
+                                    .padding(.leading, 14)
+                                    .padding(.trailing, 10)
+                                    .padding(.vertical, 14)
+                                }
                         }
-                        .padding(.leading, 14)
-                        .padding(.trailing, 10)
-                        .padding(.vertical, 14)
-                    }
+                    }.foregroundStyle(.black)
+                        .scrollIndicators(.hidden)
+
+                }
             }
 
         }
@@ -129,51 +166,80 @@ struct VendorsDetailsView: View {
                 .padding(.vertical, 14)
                 .padding(.top, 6)
 
-            RoundedRectangle(cornerRadius: 6)
-                .frame(width: 350, height: 223)
-                .foregroundStyle(.gray.opacity(0.1))
-                .overlay {
-                    VStack(alignment: .leading) {
-                        Text(
-                            "Premium Auto Care has been serving the community for over 5 years with professional car protection and detailing services. We use only the highest quality products and certified techniques."
-                        )
-                        .font(.custom("Urbanist-Regular", size: 16))
-                        Spacer()
-                        HStack {
-                            Image(systemName: "location.fill")
-                                .resizable()
-                                .frame(width: 15, height: 15)
-                                .foregroundStyle(.accent)
-                            Text("123 Main Street, Downtown")
-                                .font(.custom("Urbanist-Regular", size: 14))
+            VStack(alignment: .leading, spacing: 12) {
+                Text(vm.vendorDetails?.aboutUs ?? "NO DESCRIPTION AVAILABLE")
+                    .font(.custom("Urbanist-Regular", size: 16))
+                    .fixedSize(horizontal: false, vertical: true)  // Allows text to expand vertically as needed
 
-                        }
-                        HStack {
-                            Image(systemName: "clock.fill")
-                                .resizable()
-                                .frame(width: 15, height: 15)
-                                .foregroundStyle(.accent)
-                            Text("Mon-Sat: 8 AM - 8 PM, Sun: 10 AM - 6 PM")
-                                .font(.custom("Urbanist-Regular", size: 14))
+                Spacer(minLength: 12)
 
-                        }
-
-                        HStack {
-                            Image(systemName: "phone.fill")
-                                .resizable()
-                                .frame(width: 15, height: 15)
-                                .foregroundStyle(.accent)
-                            Text("(555) 123-4567")
-                                .font(.custom("Urbanist-Regular", size: 14))
-
-                        }
-                    }
-                    .padding(14)
+                HStack(spacing: 8) {
+                    Image(systemName: "location.fill")
+                        .font(.system(size: 15))
+                        .foregroundStyle(.accent)
+                    Text(vm.vendorDetails?.address ?? "NO ADDRESS")
+                        .font(.custom("Urbanist-Regular", size: 14))
                 }
+
+                HStack(spacing: 8) {
+                    Image(systemName: "clock.fill")
+                        .font(.system(size: 15))
+                        .foregroundStyle(.accent)
+                    Text("Mon-Sat: 8 AM - 8 PM, Sun: 10 AM - 6 PM")
+                        .font(.custom("Urbanist-Regular", size: 14))
+                }
+
+                HStack(spacing: 8) {
+                    Image(systemName: "phone.fill")
+                        .font(.system(size: 15))
+                        .foregroundStyle(.accent)
+                    Text(vm.vendorDetails?.contactPhone ?? "N/A")
+                        .font(.custom("Urbanist-Regular", size: 14))
+                }
+            }
+            .padding(14)
+            .frame(maxWidth: 350, alignment: .leading)
+            .background(
+                RoundedRectangle(cornerRadius: 6)
+                    .fill(Color.gray.opacity(0.1))
+            )
         }
     }
 
     private var reviews: some View {
+        Group {
+            if let reviews = vm.vendorDetails?.reviews, !reviews.isEmpty {
+                withReviews()
+            } else {
+                noReviews()
+            }
+        }
+
+    }
+
+}
+
+// REVIEWS
+struct noReviews: View {
+    var body: some View {
+
+        VStack {
+            Image("stars")
+                .resizable()
+                .frame(width: 236)
+                .foregroundStyle(.gray)
+
+            Text("No reviews Yet")
+                .font(.custom("Urbanist-Regular", size: 23))
+                .foregroundStyle(.black)
+
+        }.padding(.vertical, 20)
+    }
+}
+
+struct withReviews: View {
+    var body: some View {
+
         VStack(alignment: .leading) {
             HStack(alignment: .center) {
                 Text("Reviews (231)")
@@ -184,7 +250,7 @@ struct VendorsDetailsView: View {
                 Button(
                     "See all"
                 ) {
-                    vm.showReviews = true
+
                 }.font(.custom("Urbanist-Bold", size: 14))
                     .padding(.top, 6)
             }
@@ -222,10 +288,10 @@ struct VendorsDetailsView: View {
                     .padding(14)
                 }
         }
-    }
 
+    }
 }
 
 #Preview {
-    VendorsDetailsView()
+    VendorsDetailsView(vendorId: 4)
 }

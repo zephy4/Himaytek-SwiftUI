@@ -7,12 +7,26 @@
 
 import SwiftUI
 
-struct NewCommonAppBar: View {
+struct NewCommonAppbar: View {
+    @Environment(\.dismiss) var dismiss
+    @State var title: String
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Button {
+                dismiss()
+            } label: {
+                Image(systemName: "chevron.left")
+                    .foregroundStyle(.black)
+            }
+            Spacer()
+            Text(title)
+                .font(.custom("Urbanist-Regular", size: 16))
+            Spacer()
+        }
+        .padding(.vertical, 10)
     }
 }
 
 #Preview {
-    NewCommonAppBar()
+    NewCommonAppbar(title: "Title")
 }

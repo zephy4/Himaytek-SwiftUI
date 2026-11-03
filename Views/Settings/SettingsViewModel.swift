@@ -1,18 +1,30 @@
-//
-//  SettingsViewModel.swift
-//  Himaytek
-//
-//  Created by Ismaeel on 17/09/2026.
-//
-
+import Combine
 import SwiftUI
 
-struct SettingsViewModel: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+class SettingsViewModel: ObservableObject {
 
-#Preview {
-    SettingsViewModel()
+    @Published var settingsItems = [
+        SettingsModel(
+            image: "newspaper",
+            title: "Terms of Services",
+            destination: .terms
+        ),
+        SettingsModel(
+            image: "newspaper",
+            title: "Privacy Policy",
+            destination: .privacy
+        ),
+        SettingsModel(
+            image: "person",
+            title: "Support & Help Center",
+            destination: .support
+        ),
+        SettingsModel(
+            image: "ticket",
+            title: "Submit a ticket",
+            destination: .ticket
+        ),
+    ]
+
+    @Published var deleteConfirmation: Bool = false
 }
